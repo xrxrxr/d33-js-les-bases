@@ -15,6 +15,7 @@ On s'attaque ~(enfin)~ au __JS__.
 C'est tout. Amuse-toi bien!
 
 ![](https://media.giphy.com/media/10bdAP4IOmoN7G/giphy.gif)
+![](https://media.giphy.com/media/10aIH29Yp30KUE/giphy.gif)
 
 
 
