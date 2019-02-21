@@ -14,5 +14,5 @@ function marioPyramid(stageNumber) {
     stars += "*"
     stageNumber -= 1
   }
-}
-console.log(marioPyramid(stageNumber));
+};
+marioPyramid(stageNumber);

@@ -9,12 +9,7 @@
 
   console.log(journalist.length);
 
-  let i = 0;
-  function num() {
-      forEach(str => {
-          if (str.match(/\d/)) {
-              i++;
-          }
-      });
-    }
-    console.log(num());
+
+  function hasNumber(myString) {
+    return /\d/.test(myString);
+  }
