@@ -1,12 +1,10 @@
-var stageNumber = prompt("salut petit coquinou combien d'etages veux-tu ?")
-console.log("voici ta pyramide")
-
-function marioPyramid(stageNumber) {
+function marioPyramid(){
+  stageNumber = prompt('Combien de stages à la pyramides?')
   let stars = "*"
-  while (stageNumber > 0) {
+  while (stageNumber > 0){
     let emptiness = ""
     let stageNumberLine = stageNumber - 1
-    while (stageNumberLine > 0) {
+    while (stageNumberLine > 0){
       emptiness += " "
       stageNumberLine -= 1
     }
@@ -15,4 +13,5 @@ function marioPyramid(stageNumber) {
     stageNumber -= 1
   }
 };
-marioPyramid(stageNumber);
+
+marioPyramid();

@@ -1,9 +1,6 @@
-console.log("coucou depuis la console");
-/* commentaire écrit sur
-plusieurs lignes*/
+function helloWorld(){
+	firstName = prompt("What's your name ?");
+	console.log(`Hello le monde ${firstName}`);
+}
 
-let a = ""
-var name = prompt("quel est ton nom mon coquinou?");
-console.log("Bonjour ," + name + "!");
-
-alert("Bonjour, " + name + "!");
+helloWorld();
