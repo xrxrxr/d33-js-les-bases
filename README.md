@@ -8,7 +8,7 @@ On s'attaque ~(enfin)~ au __JS__.
 ====== 
 1. On ouvre gentiment le `index.html`.
 2. On test dans la `console` _tout_ les `scripts`.
-3. On remplis _honnêtement_ le `formulaire de correction`.
+3. On remplit _honnêtement_ le `formulaire de correction`.
 4. On laisse un `gentil commentaire`. 
 
                                            
