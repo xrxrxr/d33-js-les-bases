@@ -1,6 +1,10 @@
 function helloWorld(){
 	firstName = prompt("What's your name ?");
-	console.log(`Hello le monde ${firstName}`);
+	console.log(`Hello ${firstName}, seat your belt and get ready to chachacha`);
+	return `Hello ${firstName}, seat your belt and get ready to chachacha !`;
 }
 
-helloWorld();
+
+// Bonjour Paris !
+var hello_world = document.getElementById('hello_world');
+hello_world.innerHTML = helloWorld();

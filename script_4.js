@@ -2,13 +2,137 @@ let handlesTwitter = ["@jcunniet","@PaulLampon","@Aziliz31","@ssoumier","@marion
 
 function arrayQuestioning(array){
 	console.log("la longueur de cet array est de : " + array.length + " handles")
-	console.log(array.filter(word => word.match(/aude/i)))
-	console.log(array.filter(word => word.match(/[1-9]/)))
-	console.log(array.filter(word => word.match(/[1-9]/)))
-	console.log(array.filter(word => word.match(/@[A-Z]/)))
-	console.log(array.filter(word => word.match(/[A-Z]/)))
-	console.log(array.indexOf('@epenser'))
-	console.log(array.join(', ').match(/_/g))
+	console.log("le nombre de handles contenant Aude sans faire attention à la casse est de : " + array.filter(word => word.match(/aude/i)).length + " occurences.")
+	console.log("le nombre de handles contenant un chiffre est de : " + array.filter(word => word.match(/[1-9]/)).length + " occurences.")
+	console.log("le nombre de handles contenant une majuscule avant l'arobase est de : " + array.filter(word => word.match(/@[A-Z]/)).length + " occurences.")
+	console.log("le nombre de handles contenant au moins une majuscule est de : " + array.filter(word => word.match(/[A-Z]/)).length + " occurences.")
+	console.log("l'indice de epenser de : " + array.indexOf('@epenser') + "ème dans cet array")
+	console.log("le nombre d'underscores total est de : " + array.join(', ').match(/_/g).length + " occurences.")
+	console.log(array.sort(function(a,b){if (a.length > b.length) {return 1;} if (a.length < b.length) {return -1;} return 0;}).slice(0, 50))
+	console.log(array.sort())
+};
+
+arrayQuestioning(handlesTwitter);
+
+function arrayLength(array){
+  return array.length
+}
+
+function arrayAude(array){
+  return array.filter(word => word.match(/aude/i))
+}
+
+function arrayNumber(array){
+  return array.filter(word => word.match(/[1-9]/))
+}
+
+function arrayArobase(array){
+	return array.filter(word => word.match(/@[A-Z]/))
+}
+
+function arrayUppercase(array){
+	return array.filter(word => word.match(/[A-Z]/))
+}
+
+function arrayIndex(array){
+	return array.indexOf('@epenser')
+}
+
+function arrayUnderscore(array){
+	return array.join(', ').match(/_/g)
+}
+
+function arrayAlphaSorting(array){
+	return array.sort()
+}
+
+function arrayFiftyShortest(array){
+	return array.sort(function(a,b){if (a.length > b.length) {return 1;} if (a.length < b.length) {return -1;} return 0;}).slice(0, 50)
+}
+
+// Length
+var array_length = document.getElementById('array_length');
+array_length.innerHTML = "La longueur de cet array est de : " + arrayLength(handlesTwitter) + " handles"
+
+// Aude
+var array_aude = document.getElementById('array_aude');
+array_aude.innerHTML = "Le nombre de handles contenant Aude sans faire attention à la casse est de : " + arrayAude(handlesTwitter).length + " occurences qui sont :"
+arrayAude(handlesTwitter).forEach(function(element) {
+   let occurence = document.createElement('div');
+   occurence.innerHTML = element;
+   array_aude.appendChild(occurence);
+});
+
+// Number
+var array_number = document.getElementById('array_number');
+array_number.innerHTML = "Le nombre de handles contenant un chiffre est de : " + arrayNumber(handlesTwitter).length + " occurrences."
+
+// Arobase
+var array_arobase = document.getElementById('array_arobase');
+array_arobase.innerHTML = "Le nombre de handles contenant une majuscule avant l'arobase est de : " + arrayArobase(handlesTwitter).length + " occurrences."
+
+// Uppercase
+var array_uppercase = document.getElementById('array_uppercase');
+array_uppercase.innerHTML = "Le nombre de handles contenant au moins une majuscule est de : " + arrayUppercase(handlesTwitter).length + " occurrences."
+
+// Underscore
+var array_underscore = document.getElementById('array_underscore');
+array_underscore.innerHTML = "Le nombre d'underscores total est de : " + arrayUnderscore(handlesTwitter).length + " occurrences."
+
+// ePenser
+var array_index = document.getElementById('array_index');
+array_index.innerHTML = "L'indice de epenser de : " + arrayIndex(handlesTwitter) + "ème dans cet array"
+
+// Sorting Alpha
+var alpha_sorting_handles = document.getElementById('alpha_sorting_handles');
+alpha_sorting_handles.innerHTML = "Alphabet as Larry says : "
+arrayAlphaSorting(handlesTwitter).forEach(function(element) {
+   let occurrence = document.createElement('div');
+   occurrence.innerHTML = element;
+   alpha_sorting_handles.appendChild(occurrence);
+});
+
+// Sorting by Size
+//var fifty_shortest = document.getElementById('fifty_shortest');
+//fifty_shortest.innerHTML = "Any Cent for those Fifty - it's a pun"
+//arrayFiftyShortest(handlesTwitter).forEach(function(element) {
+//   let occurrence = document.createElement('div');
+//   let size = document.createElement('div');
+
+//   occurrence.innerHTML = element;
+//   size.innerHTML = (element.length - 1) + "caractères";
+
+//   fifty_shortest.appendChild(occurrence);
+//   fifty_shortest.appendChild(size);
+//});
+
+// Sorting by Size
+var fifty_shortest = document.getElementById('first_one');
+//fifty_shortest.innerHTML = "Any Cent for those Fifty - it's a pun"
+arrayFiftyShortest(handlesTwitter).forEach(function(element) {
+   let listTBody = document.createElement('tbody');
+   let listTr = document.createElement('tr');
+   let occurrence = document.createElement('td');
+   let size = document.createElement('td');
+
+   occurrence.innerHTML = element;
+   size.innerHTML = (element.length - 1) + " caractères";
+   listTr.innerHTML += occurrence.outerHTML + size.outerHTML
+   listTBody.innerHTML += listTr.outerHTML
+
+   fifty_shortest.appendChild(listTBody);
+});
+
+
+// early work on handles
+function arrayQuestioning(array){
+	console.log("la longueur de cet array est de : " + array.length + " handles")
+	console.log("le nombre de handles contenant Aude sans faire attention à la casse est de : " + array.filter(word => word.match(/aude/i)).length + " occurrences.")
+	console.log("le nombre de handles contenant un chiffre est de : " + array.filter(word => word.match(/[1-9]/)).length + " occurrences.")
+	console.log("le nombre de handles contenant une majuscule avant l'arobase est de : " + array.filter(word => word.match(/@[A-Z]/)).length + " occurrences.")
+	console.log("le nombre de handles contenant au moins une majuscule est de : " + array.filter(word => word.match(/[A-Z]/)).length + " occurences.")
+	console.log("l'indice de epenser de : " + array.indexOf('@epenser') + "ème dans cet array")
+	console.log("le nombre d'underscores total est de : " + array.join(', ').match(/_/g).length + " occurrences.")
 	console.log(array.sort(function(a,b){if (a.length > b.length) {return 1;} if (a.length < b.length) {return -1;} return 0;}).slice(0, 50))
 	console.log(array.sort())
 };

@@ -6,3 +6,6 @@ function factorial(n) {
 
 alert(factorial(n));
 console.log(factorial(n));
+
+//var div = document.getElementById('hello');
+// div.innerHTML = factorial(n);

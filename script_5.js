@@ -19,3 +19,109 @@ function hashQuestioning(hash){
 };
 
 hashQuestioning(myHash);
+
+function minValueCrypo(hash){
+  return hash.filter(obj => Number(obj.value.slice(1)) === hash.map(objt => Number(objt.value.slice(1))).sort(function(a,b){if (a > b) {return 1;} if (a < b) {return -1;} return 0;})[0])
+}
+
+function maxValueCrypo(hash){
+  return hash.filter(obj => Number(obj.value.slice(1)) === hash.map(objt => Number(objt.value.slice(1))).sort(function(a,b){if (a < b) {return 1;} if (a > b) {return -1;} return 0;})[0])
+}
+
+function cryposValuedOverSixGrand(hash){
+  return hash.filter(obj => Number(obj.value.slice(1)) > 6000)
+}
+
+function highestValuedCryptoUnderSixGrand(hash){
+  return hash.filter(obj => Number(obj.value.slice(1)) === hash.filter(objet => Number(objet.value.slice(1)) < 6000).map(objt => Number(objt.value.slice(1))).sort(function(a,b){if (a < b) {return 1;} if (a > b) {return -1;} return 0;})[0])
+}
+
+function coinCoin(hash){
+	return hash.filter(obj => obj.key.match(/coin/i))
+}
+
+// minimum Valued Crypto
+var min_valued_crypto = document.getElementById('min_valued_crypto');
+min_valued_crypto.innerHTML = "Minimoïs : "
+minValueCrypo(myHash).forEach(function(element) {
+   let key = document.createElement('div');
+   let value = document.createElement('div');
+
+   key.innerHTML = element.key;
+   value.innerHTML = element.value;
+
+   min_valued_crypto.appendChild(key);
+   min_valued_crypto.appendChild(value);
+});
+
+// max Valued Crypto
+var max_valued_crypto = document.getElementById('max_valued_crypto');
+max_valued_crypto.innerHTML = "MadMax : "
+maxValueCrypo(myHash).forEach(function(element) {
+   let key = document.createElement('div');
+   let value = document.createElement('div');
+
+   key.innerHTML = element.key;
+   value.innerHTML = element.value;
+
+   max_valued_crypto.appendChild(key);
+   max_valued_crypto.appendChild(value);
+});
+
+// Crypto over 6000
+var over_6000_crypto = document.getElementById('over_6000_crypto');
+over_6000_crypto.innerHTML = "Over 6 Grands :throwing money: "
+cryposValuedOverSixGrand(myHash).forEach(function(element) {
+   let key = document.createElement('div');
+   let value = document.createElement('div');
+
+   key.innerHTML = element.key;
+   value.innerHTML = element.value;
+
+   over_6000_crypto.appendChild(key);
+   over_6000_crypto.appendChild(value);
+});
+
+// Highest Crypto Under 6000
+var highest_crypto_under_6000 = document.getElementById('highest_crypto_under_6000');
+highest_crypto_under_6000.innerHTML = "Highest among Others :"
+highestValuedCryptoUnderSixGrand(myHash).forEach(function(element) {
+   let key = document.createElement('div');
+   let value = document.createElement('div');
+
+   key.innerHTML = element.key;
+   value.innerHTML = element.value;
+
+   highest_crypto_under_6000.appendChild(key);
+   highest_crypto_under_6000.appendChild(value);
+});
+
+// "coin coin" font les canards
+var coin_named_crypto = document.getElementById('coin_named_crypto');
+coin_named_crypto.innerHTML = "Au nombre de : " + coinCoin(myHash).length + ", voici les crypos 'Coin' - case-insentive of course darling !"
+//coinCoin(myHash).forEach(function(element) {
+//   let key = document.createElement('div');
+//   let value = document.createElement('div');
+
+//   key.innerHTML = element.key;
+//   value.innerHTML = element.value;
+
+//   coin_named_crypto.appendChild(key);
+//   coin_named_crypto.appendChild(value);
+//});
+
+var coin_named_crypto = document.getElementById('crypto_coin');
+//coin_named_crypto.innerHTML = "Au nombre de : " + coinCoin(myHash).length + ", voici les crypos avec coin dans leur nom - case-insentive of course darling !"
+coinCoin(myHash).forEach(function(element) {
+	 let listTBody = document.createElement('tbody');
+   let listTr = document.createElement('tr');
+   let key = document.createElement('td');
+   let value = document.createElement('td');
+
+   key.innerHTML = element.key;
+   value.innerHTML = element.value;
+   listTr.innerHTML += key.outerHTML + value.outerHTML
+   listTBody.innerHTML += listTr.outerHTML
+
+   coin_named_crypto.appendChild(listTBody);
+});
